@@ -1,0 +1,22 @@
+{
+  "items": [
+    {
+      "name": "Classic",
+      "desc": "Magna facilisis mauris cras blandit natoque hac pretium accumsan molestie",
+      "price": 110,
+      "id": "001"
+    },
+    {
+      "name": "Chicken burger",
+      "desc": "Pede molestie mattis porta ut blandit metus fringilla hac non fringilla",
+      "price": 150,
+      "id": "002"
+    },
+    {
+      "name": "Double burger",
+      "desc": "Pretium curae; sociosqu consectetuer inceptos ac habitasse aenean vivamus",
+      "price": 200,
+      "id": "003"
+    }
+  ]
+}
