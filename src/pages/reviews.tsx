@@ -1,4 +1,16 @@
-const Reviews = ({ reviews }) => {
+interface ReviewItem {
+  body: string
+  email: string
+  id: number
+  name: string
+  postId: number
+}
+
+interface ReviewsProps<T> {
+  reviews: T[]
+}
+
+const Reviews = ({ reviews }: ReviewsProps<ReviewItem>) => {
   return (
     <div>
       <h1>Client reviews</h1>

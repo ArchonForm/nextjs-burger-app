@@ -2,6 +2,17 @@ import Link from 'next/link'
 import styles from '../../styles/Burgers.module.css'
 import { GiHamburger } from 'react-icons/gi'
 
+interface BurgerItem {
+  name: string
+  desc: string
+  price: number
+  id: number
+}
+
+interface BurgersProps<T> {
+  burgers: T[]
+}
+
 export const getStaticProps = async () => {
   const response = await fetch('http://localhost:5000/items')
   const data = await response.json()
@@ -13,7 +24,7 @@ export const getStaticProps = async () => {
   }
 }
 
-const Burgers = ({ burgers }) => {
+const Burgers = ({ burgers }: BurgersProps<BurgerItem>) => {
   return (
     <div>
       <h1>Our burgers</h1>

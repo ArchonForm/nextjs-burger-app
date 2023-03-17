@@ -1,11 +1,26 @@
 import styles from '../../styles/Burgers.module.css'
 import { GiHamburger } from 'react-icons/gi'
 
+interface BurgerItem {
+  name: string
+  desc: string
+  price: number
+  id: number
+}
+
+interface BurgerProps<T> {
+  burger: T
+}
+
+interface BurgerContext<T> {
+  params: T
+}
+
 export const getStaticPaths = async () => {
   const response = await fetch('http://localhost:5000/items')
   const data = await response.json()
 
-  const paths = data.map(burger => {
+  const paths = data.map((burger: BurgerItem) => {
     return {
       params: {
         id: burger.id,
@@ -18,7 +33,7 @@ export const getStaticPaths = async () => {
   }
 }
 
-export const getStaticProps = async context => {
+export const getStaticProps = async (context: BurgerContext<BurgerItem>) => {
   const response = await fetch(
     `http://localhost:5000/items/${context.params.id}`
   )
@@ -31,7 +46,7 @@ export const getStaticProps = async context => {
   }
 }
 
-const Details = ({ burger }) => {
+const Details = ({ burger }: BurgerProps<BurgerItem>) => {
   return (
     <div className={styles.singleBurger}>
       <h1>{burger.name}</h1>

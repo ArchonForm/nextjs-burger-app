@@ -1,9 +1,10 @@
 import Link from 'next/link'
+import styles from './Header.module.css'
 import { GiHamburger } from 'react-icons/gi'
 
 const Header = () => {
   return (
-    <header>
+    <header className={styles.header}>
       <div>
         <GiHamburger />
       </div>
